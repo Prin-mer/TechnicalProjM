@@ -1,105 +1,88 @@
-body {
+  body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom right, #ffffff, #f4f0ff);
+  background: linear-gradient(to bottom, #ffffff, #f3f0fa);
   color: #333;
 }
 
-nav {
-  background-color: #6a0dad;
-  padding: 1em;
-  text-align: center;
+header nav {
+  background-color: #5e2a84;
+  padding: 10px 20px;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  top: 0;
 }
 
 nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-nav ul li {
-  display: inline-block;
-  margin: 0 15px;
-}
-
 nav ul li a {
-  color: #fff;
   text-decoration: none;
+  color: white;
   font-weight: bold;
 }
 
-section {
-  padding: 40px 20px;
+main {
+  padding-top: 80px;
   max-width: 800px;
   margin: auto;
 }
 
 h2 {
-  color: #6a0dad;
-  margin-bottom: 20px;
+  color: #5e2a84;
 }
 
-.profile {
+.intro-wrapper {
   position: fixed;
-  top: 20px;
-  right: 20px;
-  text-align: center;
-}
-
-.profile img {
-  width: 100px;
-  height: 100px;
-  border-radius: 12px;
-  border: 2px solid #6a0dad;
-}
-
-.profile h3 {
-  font-size: 14px;
-  color: #6a0dad;
-}
-
-ul {
-  padding-left: 20px;
-}
-
-.btn {
-  background: #6a0dad;
-  color: white;
-  padding: 8px 16px;
-  text-decoration: none;
-  border-radius: 8px;
-  display: inline-block;
-  margin-top: 10px;
-}
-
-/* Testimonials */
-.testimonial {
-  background: #f8f4ff;
-  padding: 15px;
-  margin-bottom: 10px;
-  border-left: 4px solid #6a0dad;
-}
-
-/* Intro animation */
-#intro {
-  position: fixed;
-  width: 100%;
-  height: 100%;
   background: white;
+  width: 100%;
+  height: 100vh;
+  z-index: 9999;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 999;
 }
 
-#intro h1, #intro h2 {
+.fall-text {
+  font-size: 2.5rem;
+  color: #5e2a84;
   opacity: 0;
-  transform: translateY(-50px);
+  transform: translateY(-100px);
   transition: all 1s ease;
-  color: #6a0dad;
 }
 
-#intro.hide {
+.type-text {
+  font-size: 1.8rem;
+  color: #5e2a84;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 1s ease;
+}
+
+.hide {
   display: none;
+}
+
+.testimonial {
+  padding: 10px;
+  border-left: 4px solid #5e2a84;
+  margin-bottom: 10px;
+}
+
+.see-more {
+  background-color: #5e2a84;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 20px;
+  border-radius: 5px;
 }
