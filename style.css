@@ -1,88 +1,111 @@
-  body {
+body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom, #ffffff, #f3f0fa);
-  color: #333;
-}
-
-header nav {
-  background-color: #5e2a84;
-  padding: 10px 20px;
-  position: fixed;
-  width: 100%;
-  z-index: 1000;
-  top: 0;
-}
-
-nav ul {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-}
-
-main {
-  padding-top: 80px;
-  max-width: 800px;
-  margin: auto;
-}
-
-h2 {
-  color: #5e2a84;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, white, #f2f0ff);
+  color: #1f1f1f;
+  line-height: 1.6;
 }
 
 .intro-wrapper {
-  position: fixed;
-  background: white;
-  width: 100%;
   height: 100vh;
-  z-index: 9999;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-}
-
-.fall-text {
-  font-size: 2.5rem;
-  color: #5e2a84;
-  opacity: 0;
-  transform: translateY(-100px);
+  align-items: center;
+  background: white;
+  color: purple;
+  font-size: 2rem;
+  font-weight: bold;
+  overflow: hidden;
   transition: all 1s ease;
 }
 
-.type-text {
-  font-size: 1.8rem;
-  color: #5e2a84;
-  opacity: 0;
-  transform: translateY(100px);
-  transition: all 1s ease;
-}
-
-.hide {
+.intro-wrapper.hide {
   display: none;
 }
 
+#introName {
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: all 1s ease;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+}
+
+#introRole {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+  font-size: 1.5rem;
+  color: #6a0dad;
+}
+
+.site {
+  display: none;
+  padding: 1rem;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  background: #6a0dad;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+section {
+  padding: 4rem 1rem;
+  margin-top: 3rem;
+}
+
+h2 {
+  color: #6a0dad;
+  font-size: 2rem;
+}
+
+ul {
+  padding-left: 1.5rem;
+}
+
 .testimonial {
-  padding: 10px;
-  border-left: 4px solid #5e2a84;
-  margin-bottom: 10px;
+  max-width: 600px;
+  margin: 1.5rem auto;
+  background: #f9f9f9;
+  border-left: 5px solid #6a0dad;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.testimonial p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  white-space: pre-wrap;
+}
+
+.testimonial span {
+  font-style: italic;
+  color: #555;
 }
 
 .see-more {
-  background-color: #5e2a84;
+  background: #6a0dad;
   color: white;
-  padding: 10px 20px;
+  padding: 0.7rem 1.2rem;
+  border: none;
   text-decoration: none;
-  display: inline-block;
-  margin-top: 20px;
   border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 1rem;
 }
