@@ -1,62 +1,49 @@
-// Falling letters for "NKEM MOYE"
-function dropName() {
-  const intro = document.querySelector(".intro");
-  const name = "NKEM MOYE";
-  intro.innerHTML = "";
+// Animate intro on page load
+window.onload = function () {
+  const intro = document.getElementById('intro');
+  const name = document.getElementById('introName');
+  const role = document.getElementById('introRole');
 
-  name.split("").forEach((char, index) => {
-    const span = document.createElement("span");
-    span.textContent = char;
-    span.style.position = "relative";
-    span.style.top = "-100px";
-    span.style.display = "inline-block";
-    span.style.animation = `drop 0.5s ease forwards ${index * 0.15}s`;
-    intro.appendChild(span);
-  });
-}
+  // Show "NKEM MOYE" (falls down)
+  name.style.opacity = '1';
+  name.style.transform = 'translateY(0)';
 
-// Typing effect for "Tech Projects Manager"
-function typeRole(callback) {
-  const role = document.querySelector(".role");
-  const text = "Tech Projects Manager";
-  let index = 0;
+  // Hide "NKEM MOYE"
+  setTimeout(() => {
+    name.style.opacity = '0';
+    name.style.transform = 'translateY(100px)';
+  }, 2000);
 
-  function type() {
-    if (index < text.length) {
-      role.textContent += text.charAt(index);
-      index++;
-      setTimeout(type, 80);
-    } else {
-      setTimeout(callback, 800); // Wait before showing main site
+  // Show and type "Tech Projects Manager"
+  setTimeout(() => {
+    role.style.opacity = '1';
+    role.style.transform = 'translateY(0)';
+    typeText(role, "Tech Projects Manager", () => {
+      // After typing, hide intro and show main site
+      setTimeout(() => {
+        intro.classList.add('hide');
+        document.querySelector(".site").style.display = "block";
+      }, 800);
+    });
+  }, 2500);
+
+  floatSkills();
+  rotateTestimonials();
+};
+
+// Typing effect for role
+function typeText(el, text, callback) {
+  let i = 0;
+  el.innerText = '';
+  let interval = setInterval(() => {
+    el.innerText += text[i];
+    i++;
+    if (i >= text.length) {
+      clearInterval(interval);
+      if (callback) callback();
     }
-  }
-
-  type();
+  }, 100);
 }
-
-// Reveal full site
-function showSite() {
-  document.querySelector(".site").style.display = "block";
-  document.querySelector(".intro-wrapper").style.display = "none";
-}
-
-// Smooth scrolling from navbar
-document.querySelectorAll("nav a").forEach((link) => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault();
-    const target = document.querySelector(link.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
-    }
-  });
-});
-
-// See More buttons redirect to LinkedIn
-document.querySelectorAll(".see-more").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    window.open("https://www.linkedin.com/in/nkemmoye/", "_blank");
-  });
-});
 
 // Floating skill bubbles
 function floatSkills() {
@@ -73,7 +60,7 @@ function floatSkills() {
   });
 }
 
-// Auto-scroll testimonials
+// Auto-rotate testimonials
 let testimonialIndex = 0;
 function rotateTestimonials() {
   const testimonials = document.querySelectorAll(".testimonial");
@@ -85,10 +72,20 @@ function rotateTestimonials() {
 }
 setInterval(rotateTestimonials, 3000);
 
-// Run on load
-window.onload = () => {
-  dropName();
-  typeRole(showSite);
-  floatSkills();
-  rotateTestimonials();
-};
+// Smooth scroll for navbar links
+document.querySelectorAll("nav a").forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute("href"));
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+});
+
+// "See more" buttons go to LinkedIn
+document.querySelectorAll(".see-more").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    window.open("https://www.linkedin.com/in/nkemmoye/", "_blank");
+  });
+});
